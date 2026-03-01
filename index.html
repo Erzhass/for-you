@@ -622,8 +622,7 @@
                         membuat hati ini berdegup kencang</strong></p>
                 <p>Kamu tahu? Dari sekian banyak orang yang aku temui, <strong>kamu tuh beda.</strong> Bukan cuma karena
                     senyum kamu yang manis, atau cara kamu ngomong yang bikin aku betah dengerin. Tapi karena
-                    <strong>kamu tuh... nyambung.</strong> Ada rasa hangat yang aku dapat setiap kali deket kamu.
-                </p>
+                    <strong>kamu tuh... nyambung.</strong> Ada rasa hangat yang aku dapat setiap kali deket kamu.</p>
                 <p>Jujur, aku deg-degan banget bikin website ini. Semoga videonya nggak terlalu kaku, ya 😅 Tapi aku
                     pengen kamu tau, <strong>semua kata-kata di video itu tulus dari hati.</strong> Nggak ada yang
                     dibuat-buat.</p>
@@ -661,13 +660,12 @@
     <div class="music-player" id="musicPlayer">
         <div class="music-info">
             <span>🎵</span>
-            <span id="songTitle">Untuk Lika</span>
+            <span id="songTitle">Ed Sheeran - Perfect</span>
         </div>
         <button class="music-btn" id="musicToggleBtn">⏸️</button>
     </div>
 
     <audio id="bgMusic" loop>
-        <!-- GANTI DENGAN NAMA FILE MUSIK KAMU -->
         <source src="Ed Sheeran - Perfect.mp3" type="audio/mpeg">
         Browser-mu tidak mendukung audio.
     </audio>
@@ -703,13 +701,19 @@
         const phoneNumber = "6289603309335";
 
         // ===== MUSIC PLAYER =====
-        // Set volume
-        bgMusic.volume = 0.4;
+        // Set volume kecil (20%)
+        bgMusic.volume = 0.2;
 
-        // Coba play otomatis (bisa kena kebijakan browser)
+        // Coba play otomatis pas halaman dimuat
         window.addEventListener('load', function () {
-            bgMusic.play().catch(error => {
-                console.log("Autoplay gagal, user harus interaksi dulu");
+            bgMusic.play().then(() => {
+                // Berhasil play
+                isMusicPlaying = true;
+                musicToggleBtn.textContent = '⏸️';
+                musicToggleBtn.classList.remove('paused');
+            }).catch(error => {
+                // Gagal play (kebijakan browser)
+                console.log("Autoplay dicegah browser");
                 isMusicPlaying = false;
                 musicToggleBtn.textContent = '▶️';
                 musicToggleBtn.classList.add('paused');
@@ -797,7 +801,7 @@
         function sendToWhatsApp(type) {
             let message = "";
             if (type === 'accept') {
-                message = "Halo! Aku sudah lihat semua pesan kamu, dan aku mau jadi pacarmu ❤️";
+                message = "Erzha aku sudah lihat semua pesan kamu, dan aku mau jadi pacarmu ❤️";
             } else if (type === 'reject') {
                 message = "Maaf, aku belum bisa sama kamu. Terima kasih sudah suka sama aku, kamu orang baik. Semoga kita tetap bisa berteman. 🌹";
             } else {
