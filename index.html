@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>Untuk Lika, dari seseorang yang diam-diam suka 💓</title>
     <style>
         /* ===== Font & Dasar ===== */
@@ -22,7 +22,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px;
+            padding: 15px;
         }
 
         .container {
@@ -31,7 +31,7 @@
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
             border-radius: 40px 20px 40px 20px;
-            padding: 40px 30px;
+            padding: 30px 20px;
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             border: 2px solid white;
             transition: all 0.3s ease;
@@ -67,23 +67,24 @@
 
         .intro-page h1 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 8vw, 3.5rem);
             color: #c44569;
             margin-bottom: 10px;
         }
 
         .intro-page .sub {
-            font-size: 1.2rem;
+            font-size: clamp(1rem, 4vw, 1.2rem);
             color: #555;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
+            padding: 0 10px;
         }
 
         .start-btn {
             background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
             border: none;
             color: white;
-            padding: 18px 50px;
-            font-size: 1.5rem;
+            padding: 15px 40px;
+            font-size: clamp(1.2rem, 5vw, 1.5rem);
             font-weight: bold;
             border-radius: 60px;
             cursor: pointer;
@@ -91,6 +92,9 @@
             transition: all 0.3s;
             border: 2px solid white;
             margin-top: 20px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .start-btn:hover {
@@ -99,8 +103,8 @@
         }
 
         .intro-icon {
-            font-size: 6rem;
-            margin: 20px 0;
+            font-size: clamp(4rem, 15vw, 6rem);
+            margin: 15px 0;
             animation: float 3s infinite;
         }
 
@@ -125,7 +129,7 @@
 
         .section-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
+            font-size: clamp(2rem, 6vw, 2.5rem);
             color: #c44569;
             text-align: center;
             margin-bottom: 20px;
@@ -134,21 +138,21 @@
         .card-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-bottom: 40px;
+            gap: 15px;
+            margin-bottom: 30px;
         }
 
         .card {
             aspect-ratio: 1 / 1;
             background: linear-gradient(145deg, #fff0f0, #ffe0e7);
-            border-radius: 30px 10px 30px 10px;
+            border-radius: 25px 8px 25px 8px;
             border: 3px dashed #f8a5a5;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
             transition: 0.3s;
             cursor: pointer;
             overflow: hidden;
@@ -161,7 +165,7 @@
         }
 
         .card.empty .plus-icon {
-            font-size: 4rem;
+            font-size: clamp(2.5rem, 8vw, 4rem);
             color: #f8a5a5;
             opacity: 0.7;
         }
@@ -169,19 +173,22 @@
         .card.empty p {
             color: #c44569;
             font-weight: 500;
-            margin-top: 10px;
+            margin-top: 8px;
+            font-size: clamp(0.7rem, 3vw, 0.9rem);
+            text-align: center;
         }
 
         .card.filled {
             border: 3px solid #f78fb3;
             background: white;
+            padding: 0;
         }
 
         .card.filled img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 25px 5px 25px 5px;
+            border-radius: 22px 5px 22px 5px;
         }
 
         .video-card {
@@ -189,13 +196,14 @@
             aspect-ratio: 16 / 9;
             background: #2d1b3c;
             border: 3px solid #ffb6c1;
+            padding: 0;
         }
 
         .video-card video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 25px 5px 25px 5px;
+            border-radius: 22px 5px 22px 5px;
         }
 
         .video-placeholder {
@@ -207,47 +215,55 @@
             align-items: center;
             background: #c44569;
             color: white;
-            border-radius: 25px 5px 25px 5px;
+            border-radius: 22px 5px 22px 5px;
+            padding: 15px;
+            text-align: center;
         }
 
         .video-placeholder span {
-            font-size: 4rem;
+            font-size: clamp(3rem, 10vw, 4rem);
+        }
+
+        .video-placeholder p {
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            margin-top: 8px;
         }
 
         /* ===== AREA PERTANYAAN ===== */
         .question-area {
             background: #fff5f5;
-            padding: 30px;
-            border-radius: 40px 10px 40px 10px;
-            margin: 30px 0 20px;
+            padding: 25px 20px;
+            border-radius: 35px 8px 35px 8px;
+            margin: 25px 0 15px;
             text-align: center;
         }
 
         .question-text {
-            font-size: 2rem;
+            font-size: clamp(1.5rem, 5vw, 2rem);
             font-weight: 700;
             color: #c44569;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-family: 'Dancing Script', cursive;
         }
 
         .button-group {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 20px;
             margin-bottom: 15px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 45px;
-            font-size: 1.4rem;
+            padding: 10px 30px;
+            font-size: clamp(1.2rem, 4vw, 1.4rem);
             font-weight: 600;
             border: none;
             border-radius: 50px;
             cursor: pointer;
             transition: 0.3s;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            min-width: 150px;
         }
 
         .btn-yes {
@@ -257,7 +273,7 @@
 
         .btn-yes:hover {
             background: #45a049;
-            transform: scale(1.1);
+            transform: scale(1.05);
             box-shadow: 0 0 20px #4CAF50;
         }
 
@@ -272,7 +288,7 @@
         }
 
         .click-counter {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #666;
             margin-top: 10px;
         }
@@ -280,17 +296,17 @@
         .click-counter span {
             font-weight: 700;
             color: #f44336;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
         }
 
         .fun-note {
             font-size: 0.8rem;
             color: #999;
-            margin-top: 5px;
+            margin-top: 8px;
             font-style: italic;
         }
 
-        /* ===== HALAMAN 3: TERIMA KASIH (V2 LEBIH BAGUS) ===== */
+        /* ===== HALAMAN 3: TERIMA KASIH ===== */
         .thankyou-page {
             display: none;
             text-align: center;
@@ -298,7 +314,7 @@
 
         .thankyou-page h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 7vw, 3rem);
             color: #c44569;
             margin-bottom: 10px;
         }
@@ -306,10 +322,10 @@
         .thankyou-video {
             width: 100%;
             max-width: 500px;
-            margin: 20px auto;
-            border-radius: 30px;
+            margin: 15px auto;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
         }
 
         .thankyou-video video {
@@ -318,38 +334,46 @@
         }
 
         .thankyou-message {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: #444;
-            margin: 30px 0;
-            line-height: 1.9;
+            margin: 25px 0;
+            line-height: 1.8;
             background: #fff9f9;
-            padding: 30px 25px;
-            border-radius: 40px 10px 40px 10px;
+            padding: 25px 20px;
+            border-radius: 35px 8px 35px 8px;
             border-left: 5px solid #f78fb3;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+
+        .thankyou-message p {
+            margin-bottom: 12px;
         }
 
         .gift-btn {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             border: none;
             color: white;
-            font-size: 1.8rem;
-            padding: 20px 50px;
+            font-size: clamp(1.3rem, 5vw, 1.8rem);
+            padding: 15px 40px;
             border-radius: 60px;
             font-weight: bold;
             cursor: pointer;
-            margin: 20px 0 15px;
+            margin: 15px 0 15px;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border: 3px solid white;
             transition: 0.3s;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .gift-btn:hover {
-            transform: scale(1.1) rotate(2deg);
+            transform: scale(1.05);
             box-shadow: 0 15px 30px rgba(255, 215, 0, 0.5);
         }
 
-        /* ===== HALAMAN 4: MAAF (Jika Ditolak) ===== */
+        /* ===== HALAMAN 4: MAAF ===== */
         .sorry-page {
             display: none;
             text-align: center;
@@ -357,28 +381,29 @@
 
         .sorry-page h2 {
             font-family: 'Dancing Script', cursive;
-            font-size: 3rem;
+            font-size: clamp(2.2rem, 7vw, 3rem);
             color: #666;
-            margin-bottom: 20px;
-        }
-
-        .sorry-message {
-            font-size: 1.2rem;
-            color: #555;
-            margin: 30px 0;
-            line-height: 1.8;
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 40px 10px 40px 10px;
-        }
-
-        .sorry-message p {
             margin-bottom: 15px;
         }
 
+        .sorry-message {
+            font-size: 1rem;
+            color: #555;
+            margin: 25px 0;
+            line-height: 1.8;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 35px 8px 35px 8px;
+            text-align: left;
+        }
+
+        .sorry-message p {
+            margin-bottom: 12px;
+        }
+
         .sorry-message .heart-broken {
-            font-size: 4rem;
-            margin: 20px 0;
+            font-size: 3.5rem;
+            margin: 15px 0;
             opacity: 0.5;
         }
 
@@ -386,15 +411,18 @@
             background: #25D366;
             border: none;
             color: white;
-            font-size: 1.3rem;
-            padding: 15px 40px;
+            font-size: 1.2rem;
+            padding: 12px 35px;
             border-radius: 60px;
             font-weight: bold;
             cursor: pointer;
-            margin: 20px 0;
+            margin: 15px 0;
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
             border: 2px solid white;
             transition: 0.3s;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .contact-btn:hover {
@@ -404,8 +432,113 @@
 
         .footer-note {
             color: #666;
-            font-size: 0.9rem;
-            margin-top: 20px;
+            font-size: 0.85rem;
+            margin-top: 15px;
+        }
+
+        /* ===== MUSIC PLAYER ===== */
+        .music-player {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 50px;
+            padding: 8px 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            border: 2px solid #f78fb3;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            z-index: 999;
+            animation: slideIn 0.5s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .music-info {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+            color: #c44569;
+            font-weight: 500;
+        }
+
+        .music-info span:first-child {
+            font-size: 1.1rem;
+        }
+
+        .music-btn {
+            background: #f78fb3;
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid white;
+        }
+
+        .music-btn:hover {
+            background: #c44569;
+            transform: scale(1.1);
+        }
+
+        .music-btn.paused {
+            background: #999;
+        }
+
+        /* Responsive khusus HP kecil */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 20px 15px;
+            }
+
+            .btn {
+                min-width: 120px;
+                padding: 8px 20px;
+            }
+
+            .button-group {
+                gap: 15px;
+            }
+
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 6px 12px;
+            }
+
+            .music-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 1rem;
+            }
+
+            .music-info {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -424,7 +557,6 @@
         <div id="mainPage" class="main-page">
             <div class="section-title">Kamu Dalam Bingkai</div>
 
-            <!-- Grid 4 Card Kosong + 1 Card Video -->
             <!-- Grid 4 Card Foto + 1 Card Video -->
             <div class="card-grid">
                 <!-- Card 1 - Foto 1 -->
@@ -442,18 +574,18 @@
                     <img src="foto3.png" alt="Momen yang buat aku jatuh hati">
                 </div>
 
-                <!-- Card 4 - Masih kosong? bisa diisi nanti -->
+                <!-- Card 4 - Masih kosong -->
                 <div class="card empty" id="card4">
                     <div class="plus-icon">➕</div>
                     <p>Andai ini foto kita bareng...</p>
                 </div>
 
-                <!-- Card 5 - Video (span 2) -->
+                <!-- Card 5 - Video -->
                 <div class="card video-card" id="videoCard">
                     <div class="video-placeholder" id="videoPlaceholder">
                         <span>🎥</span>
-                        <p style="margin-top: 10px;">Video yang aku rekam khusus buat Lika</p>
-                        <p style="font-size: 0.8rem; opacity: 0.8;">(Klik untuk putar video)</p>
+                        <p>Video yang aku rekam khusus buat Lika</p>
+                        <p style="font-size: 0.7rem; opacity: 0.8;">(Klik untuk putar video)</p>
                     </div>
                     <video id="confessVideo" style="display: none;" controls>
                         <source src="VID20260228222006.mp4" type="video/mp4">
@@ -480,46 +612,34 @@
             </div>
         </div>
 
-        <!-- HALAMAN TERIMA KASIH (VERSI BAGUS DENGAN UCAPAN PANJANG) -->
+        <!-- HALAMAN TERIMA KASIH -->
         <div id="thankyouPage" class="thankyou-page">
-            <!-- Animasi Hati -->
-            <div style="font-size: 5rem; animation: heartbeat 1.5s infinite; margin-bottom: 10px;">💖</div>
-
+            <div style="font-size: 4rem; animation: heartbeat 1.5s infinite; margin-bottom: 10px;">💖</div>
             <h2>Terima kasih ya, sayang...</h2>
 
-            <!-- UCAPAN TERIMA KASIH YANG BARU (LEBIH PANJANG DAN PUJIAN) -->
             <div class="thankyou-message">
-                <p style="font-size: 1.5rem; margin-bottom: 20px;">🌹 <strong>Untuk Lika, perempuan yang berhasil
+                <p style="font-size: 1.3rem; margin-bottom: 15px;">🌹 <strong>Untuk Lika, perempuan yang berhasil
                         membuat hati ini berdegup kencang</strong></p>
-
-                <p style="margin-bottom: 15px;">Kamu tahu? Dari sekian banyak orang yang aku temui, <strong>kamu tuh
-                        beda.</strong> Bukan cuma karena senyum kamu yang manis, atau cara kamu ngomong yang bikin aku
-                    betah dengerin. Tapi karena <strong>kamu tuh... nyambung.</strong> Ada rasa hangat yang aku dapat
-                    setiap kali deket kamu.</p>
-
-                <p style="margin-bottom: 15px;">Jujur, aku deg-degan banget bikin website ini. Semoga videonya nggak
-                    terlalu kaku, ya 😅 Tapi aku pengen kamu tau, <strong>semua kata-kata di video itu tulus dari
-                        hati.</strong> Nggak ada yang dibuat-buat.</p>
-
-                <p style="margin-bottom: 15px;"><strong>Sekarang, resmi ya kita "kita"?</strong> Aku nggak janji jadi
-                    yang sempurna, karena aku juga manusia biasa. Tapi aku janji akan <strong>selalu berusaha jadi yang
-                        terbaik buat kamu,</strong> bakal jaga kamu, dengerin kamu, dan ada di samping kamu kapanpun
-                    kamu butuh.</p>
-
-                <p style="margin-bottom: 20px;">Makasih ya udah mau baca, dengerin, dan nerima aku. 🥹❤️</p>
-
+                <p>Kamu tahu? Dari sekian banyak orang yang aku temui, <strong>kamu tuh beda.</strong> Bukan cuma karena
+                    senyum kamu yang manis, atau cara kamu ngomong yang bikin aku betah dengerin. Tapi karena
+                    <strong>kamu tuh... nyambung.</strong> Ada rasa hangat yang aku dapat setiap kali deket kamu.</p>
+                <p>Jujur, aku deg-degan banget bikin website ini. Semoga videonya nggak terlalu kaku, ya 😅 Tapi aku
+                    pengen kamu tau, <strong>semua kata-kata di video itu tulus dari hati.</strong> Nggak ada yang
+                    dibuat-buat.</p>
+                <p><strong>Sekarang, resmi ya kita "kita"?</strong> Aku nggak janji jadi yang sempurna, karena aku juga
+                    manusia biasa. Tapi aku janji akan <strong>selalu berusaha jadi yang terbaik buat kamu,</strong>
+                    bakal jaga kamu, dengerin kamu, dan ada di samping kamu kapanpun kamu butuh.</p>
+                <p>Makasih ya udah mau baca, dengerin, dan nerima aku. 🥹❤️</p>
                 <p style="font-style: italic; color: #c44569;">"Aku nggak nyangka bakal seberuntung ini. ini hal
                     terindah yang pernah aku dapat."</p>
             </div>
 
-            <!-- Tombol Hadiah -->
             <button class="gift-btn" id="giftBtn">🎁 chat akuuuu</button>
-
             <p class="footer-note">*Klik tombol di atas untuk chat aku di WhatsApp. Aku udah nggak sabar chat kamu!
                 🏃‍♂️💨</p>
         </div>
 
-        <!-- HALAMAN MAAF (Setelah berhasil klik Tidak 100x dan konfirmasi) -->
+        <!-- HALAMAN MAAF -->
         <div id="sorryPage" class="sorry-page">
             <div class="heart-broken">💔</div>
             <h2>Baiklah, aku mengerti...</h2>
@@ -532,10 +652,24 @@
             </div>
 
             <button class="contact-btn" id="sorryContactBtn">📱 Chat Aja Sih... (Buat Ngobrol Biasa)</button>
-
             <p class="footer-note">*Klik untuk chat aku di WhatsApp, kita tetap bisa berteman</p>
         </div>
     </div>
+
+    <!-- MUSIC PLAYER -->
+    <div class="music-player" id="musicPlayer">
+        <div class="music-info">
+            <span>🎵</span>
+            <span id="songTitle">Untuk Lika</span>
+        </div>
+        <button class="music-btn" id="musicToggleBtn">⏸️</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <!-- GANTI DENGAN NAMA FILE MUSIK KAMU -->
+        <source src="lagu-spesial.mp3" type="audio/mpeg">
+        Browser-mu tidak mendukung audio.
+    </audio>
 
     <script>
         // Ambil semua elemen yang diperlukan
@@ -550,18 +684,51 @@
         const videoCard = document.getElementById('videoCard');
         const videoPlaceholder = document.getElementById('videoPlaceholder');
         const confessVideo = document.getElementById('confessVideo');
-        const thankyouVideo = document.getElementById('thankyouVideo');
         const giftBtn = document.getElementById('giftBtn');
         const sorryContactBtn = document.getElementById('sorryContactBtn');
 
-        // ===== STATE =====
-        let clickCount = 0;         // Hitungan klik tombol "Tidak"
-        const maxClicks = 100;       // Target 100 klik untuk menolak
-        let hasAccepted = false;     // Status apakah sudah terima
-        let hasRejected = false;     // Status apakah sudah menolak
+        // Elemen Music Player
+        const bgMusic = document.getElementById('bgMusic');
+        const musicToggleBtn = document.getElementById('musicToggleBtn');
 
-        // ===== NOMOR WHATSAPP (UDAH DIISI) =====
-        const phoneNumber = "6289603309335"; // +62 896-0330-9335 -> 6289603309335
+        // ===== STATE =====
+        let clickCount = 0;
+        const maxClicks = 100;
+        let hasAccepted = false;
+        let hasRejected = false;
+        let isMusicPlaying = true;
+
+        // ===== NOMOR WHATSAPP =====
+        const phoneNumber = "6289603309335";
+
+        // ===== MUSIC PLAYER =====
+        // Set volume
+        bgMusic.volume = 0.4;
+
+        // Coba play otomatis (bisa kena kebijakan browser)
+        window.addEventListener('load', function () {
+            bgMusic.play().catch(error => {
+                console.log("Autoplay gagal, user harus interaksi dulu");
+                isMusicPlaying = false;
+                musicToggleBtn.textContent = '▶️';
+                musicToggleBtn.classList.add('paused');
+            });
+        });
+
+        // Toggle play/pause
+        musicToggleBtn.addEventListener('click', function () {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                musicToggleBtn.textContent = '⏸️';
+                musicToggleBtn.classList.remove('paused');
+                isMusicPlaying = true;
+            } else {
+                bgMusic.pause();
+                musicToggleBtn.textContent = '▶️';
+                musicToggleBtn.classList.add('paused');
+                isMusicPlaying = false;
+            }
+        });
 
         // ===== FUNGSI BUKA SURAT =====
         startBtn.addEventListener('click', function () {
@@ -587,44 +754,27 @@
         // ===== FUNGSI UNTUK TOMBOL "IYA" =====
         yesBtn.addEventListener('click', function () {
             if (hasAccepted || hasRejected) return;
-
             hasAccepted = true;
-
-            // Sembunyikan halaman utama, tampilkan halaman terima kasih
             mainPage.style.display = 'none';
             thankyouPage.style.display = 'block';
-
-            if (thankyouVideo) {
-                thankyouVideo.play();
-            }
         });
 
         // ===== FUNGSI UNTUK TOMBOL "TIDAK" =====
         noBtn.addEventListener('click', function () {
-            // Kalau sudah terima atau tolak, stop
             if (hasAccepted || hasRejected) return;
 
-            // Tambah hitungan klik
             clickCount++;
             counterSpan.textContent = clickCount;
 
-            // Cek apakah sudah mencapai 100 klik?
             if (clickCount >= maxClicks) {
-                // Munculkan popup konfirmasi bahwa dia benar-benar menolak
                 const reallySure = confirm('Kamu sudah klik TIDAK 100 kali. Apakah kamu SANGAT YAKIN ingin menolak? 😢\n\n(Klik OK untuk menolak, Cancel untuk berpikir lagi)');
 
                 if (reallySure) {
-                    // Dia benar-benar menolak
                     hasRejected = true;
-
-                    // Sembunyikan halaman utama, tampilkan halaman maaf
                     mainPage.style.display = 'none';
                     sorryPage.style.display = 'block';
-
-                    // Kirim otomatis ke WhatsApp dengan pesan penolakan
                     sendToWhatsApp('reject');
                 } else {
-                    // Dia batal menolak, reset hitungan ke 99 (biar ga langsung mentok lagi)
                     alert('Makasih udah ngga jadi nolak 🥹 Aku kasih kesempatan lagi ya!');
                     clickCount = maxClicks - 1;
                     counterSpan.textContent = clickCount;
@@ -632,12 +782,12 @@
             }
         });
 
-        // ===== FUNGSI UNTUK TOMBOL "HADIAH" (SETELAH TERIMA) =====
+        // ===== FUNGSI UNTUK TOMBOL HADIAH =====
         giftBtn.addEventListener('click', function () {
             sendToWhatsApp('accept');
         });
 
-        // ===== FUNGSI UNTUK TOMBOL "CHAT" (SETELAH TOLAK) =====
+        // ===== FUNGSI UNTUK TOMBOL CHAT (SORRY) =====
         sorryContactBtn.addEventListener('click', function () {
             sendToWhatsApp('friend');
         });
@@ -645,7 +795,6 @@
         // ===== FUNGSI KIRIM KE WHATSAPP =====
         function sendToWhatsApp(type) {
             let message = "";
-
             if (type === 'accept') {
                 message = "Halo! Aku sudah lihat semua pesan kamu, dan aku mau jadi pacarmu ❤️";
             } else if (type === 'reject') {
@@ -656,7 +805,6 @@
 
             const encodedMessage = encodeURIComponent(message);
             const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-
             window.open(whatsappURL, '_blank');
         }
     </script>
