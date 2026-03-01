@@ -661,12 +661,13 @@
     <div class="music-player" id="musicPlayer">
         <div class="music-info">
             <span>🎵</span>
-            <span id="songTitle">Ed Sheeran - Perfect</span>
+            <span id="songTitle">Untuk Lika</span>
         </div>
         <button class="music-btn" id="musicToggleBtn">⏸️</button>
     </div>
 
     <audio id="bgMusic" loop>
+        <!-- GANTI DENGAN NAMA FILE MUSIK KAMU -->
         <source src="Ed Sheeran - Perfect.mp3" type="audio/mpeg">
         Browser-mu tidak mendukung audio.
     </audio>
@@ -702,19 +703,13 @@
         const phoneNumber = "6289603309335";
 
         // ===== MUSIC PLAYER =====
-        // Set volume kecil (20%)
-        bgMusic.volume = 0.2;
+        // Set volume
+        bgMusic.volume = 0.4;
 
-        // Coba play otomatis pas halaman dimuat
+        // Coba play otomatis (bisa kena kebijakan browser)
         window.addEventListener('load', function () {
-            bgMusic.play().then(() => {
-                // Berhasil play
-                isMusicPlaying = true;
-                musicToggleBtn.textContent = '⏸️';
-                musicToggleBtn.classList.remove('paused');
-            }).catch(error => {
-                // Gagal play (kebijakan browser)
-                console.log("Autoplay dicegah browser");
+            bgMusic.play().catch(error => {
+                console.log("Autoplay gagal, user harus interaksi dulu");
                 isMusicPlaying = false;
                 musicToggleBtn.textContent = '▶️';
                 musicToggleBtn.classList.add('paused');
@@ -762,7 +757,7 @@
             if (hasAccepted || hasRejected) return;
             hasAccepted = true;
             mainPage.style.display = 'none';
-            thankyouPage.style.display = 'block'; //
+            thankyouPage.style.display = 'block';
         });
 
         // ===== FUNGSI UNTUK TOMBOL "TIDAK" =====
@@ -802,7 +797,7 @@
         function sendToWhatsApp(type) {
             let message = "";
             if (type === 'accept') {
-                message = "Erzha aku sudah lihat semua pesan kamu, dan aku mau jadi pacarmu ❤️";
+                message = "Erzha Aku sudah lihat semua pesan kamu, dan aku mau jadi pacarmu ❤️";
             } else if (type === 'reject') {
                 message = "Maaf, aku belum bisa sama kamu. Terima kasih sudah suka sama aku, kamu orang baik. Semoga kita tetap bisa berteman. 🌹";
             } else {
